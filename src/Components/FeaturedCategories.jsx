@@ -29,12 +29,12 @@ const categories = [
 
 const FeaturedCategories = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-4 py-7">
       <h2
         className="
           text-3xl 
-          md:text-4xl 
-          lg:text-5xl 
+          md:text-3xl 
+          lg:text-4xl 
           font-bold 
           mb-8 
           text-center 

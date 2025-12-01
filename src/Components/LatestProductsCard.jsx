@@ -13,7 +13,7 @@ const cardVariants = {
 };
 
 const LatestProductsCard = ({ product, index }) => {
-  const { image, name, price, origin, rating, quantity, _id } = product;
+  const { image, name, price, quantity, _id } = product;
 
   return (
     <motion.div
@@ -38,14 +38,7 @@ const LatestProductsCard = ({ product, index }) => {
         <span className="font-semibold">Price:</span>{" "}
         <span className="text-purple-500">${price}</span>
       </p>
-      <p className="text-gray-600 mb-1">
-        <span className="font-semibold">Origin:</span>{" "}
-        <span className="text-pink-500">{origin}</span>
-      </p>
-      <p className="text-gray-600 mb-1">
-        <span className="font-semibold">Rating:</span>{" "}
-        <span className="text-green-500">{rating}</span>
-      </p>
+
       <p className="text-gray-600 mb-3">
         <span className="font-semibold">Available:</span>{" "}
         <span className="text-blue-500">{quantity}</span>

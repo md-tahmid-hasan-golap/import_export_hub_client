@@ -34,13 +34,13 @@ const cardVariants = {
 
 const Testimonials = () => {
   return (
-    <section className="bg-base-200 py-12 mb-7 rounded-lg">
+    <section className="bg-base-200 my-7 py-5 mb-7 rounded-lg">
       <div className="max-w-6xl mx-auto px-4">
         <h2
           className="
   text-3xl 
-  md:text-4xl 
-  lg:text-5xl 
+  md:text-3xl 
+  lg:text-4xl 
   font-bold 
   mb-8 
   text-center 

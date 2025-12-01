@@ -8,28 +8,28 @@ import { AuthContext } from "../firebase/FirebaseAuthProvider";
 const AddExport = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
+
     data.email = user.email;
     data.userName = user.displayName;
     data.createdAt = new Date();
-
-    // console.log(data);
 
     axios
       .post("https://import-export-hub-server-side.vercel.app/products", data)
       .then((res) => {
         if (res.data.insertedId) {
           Swal.fire({
-            title: "Add Product SuccessFully!",
+            title: "Add Product Successfully!",
             icon: "success",
             draggable: true,
             timer: 1500,
           });
-          navigate("/");
+          navigate("/myExports");
         }
       })
       .catch((error) => {
@@ -46,21 +46,13 @@ const AddExport = () => {
         <FaArrowLeftLong /> Back To Home
       </Link>
 
-      {/* ✅ Title + Description */}
       <h2
         className="
-          text-3xl 
-          md:text-4xl 
-          lg:text-5xl 
-          font-bold 
-          mb-4 
-          text-center 
+          text-3xl md:text-4xl lg:text-5xl 
+          font-bold mb-4 text-center 
           bg-gradient-to-r 
-          from-purple-500 
-          via-pink-500 
-          to-red-500 
-          bg-clip-text 
-          text-transparent
+          from-purple-500 via-pink-500 to-red-500 
+          bg-clip-text text-transparent
         "
       >
         Add New Export Product
@@ -71,7 +63,7 @@ const AddExport = () => {
         so that others can import your product easily.
       </p>
 
-      {/* ✅ FORM START */}
+      {/* FORM START */}
       <form onSubmit={handleAddProduct} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Product Name */}
@@ -135,9 +127,66 @@ const AddExport = () => {
               required
             />
           </div>
+
+          {/* 🔥 Category */}
+          <div>
+            <label className="label">Category</label>
+            <input
+              type="text"
+              name="category"
+              placeholder="Enter product category"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* 🔥 Supplier Name */}
+          <div>
+            <label className="label">Supplier Name</label>
+            <input
+              type="text"
+              name="supplier"
+              placeholder="Enter supplier/company name"
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          {/* 🔥 Brand */}
+          <div>
+            <label className="label">Brand</label>
+            <input
+              type="text"
+              name="brand"
+              placeholder="Enter brand name"
+              className="input input-bordered w-full"
+            />
+          </div>
         </div>
 
-        {/* Image URL */}
+        {/* 🔥 Short Description */}
+        <div>
+          <label className="label">Short Description</label>
+          <input
+            type="text"
+            name="shortDescription"
+            placeholder="Enter short description"
+            className="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        {/* 🔥 Full Description */}
+        <div>
+          <label className="label">Full Description</label>
+          <textarea
+            name="fullDescription"
+            placeholder="Write product full description..."
+            className="textarea textarea-bordered w-full h-32"
+            required
+          ></textarea>
+        </div>
+
+        {/* 🔥 Image URL */}
         <div>
           <label className="label">Product Image (URL)</label>
           <input

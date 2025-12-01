@@ -4,6 +4,7 @@ import FeaturedCategories from "./FeaturedCategories";
 import Testimonials from "./Testimonials";
 import LatestProducts from "./LatestProducts";
 import { useLoaderData } from "react-router";
+import Achievements from "./Achievements ";
 
 const Home = () => {
   const latestProducts = useLoaderData();
@@ -14,6 +15,7 @@ const Home = () => {
       <FeaturedCategories></FeaturedCategories>
       <LatestProducts latestProducts={latestProducts}></LatestProducts>
       <Testimonials></Testimonials>
+      <Achievements></Achievements>
     </div>
   );
 };

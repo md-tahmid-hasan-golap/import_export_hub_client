@@ -7,8 +7,22 @@ import Swal from "sweetalert2";
 const UpdateProducts = () => {
   const product = useLoaderData();
   const navigate = useNavigate();
-  //   console.log(product);
-  const { _id, name, origin, price, quantity, rating, image } = product;
+
+  const {
+    _id,
+    name,
+    origin,
+    price,
+    quantity,
+    rating,
+    category,
+    supplier,
+    brand,
+    shortDescription,
+    fullDescription,
+    image,
+  } = product;
+
   const handleUpdateProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -35,6 +49,7 @@ const UpdateProducts = () => {
         console.log(error);
       });
   };
+
   return (
     <div className="max-w-6xl mx-auto my-10 px-4">
       <Link
@@ -44,33 +59,31 @@ const UpdateProducts = () => {
         <FaArrowLeftLong /> Back To Home
       </Link>
 
-      {/* ✅ Title + Description */}
+      {/* Title + Description */}
       <h2
         className="
-    text-3xl 
-    md:text-4xl 
-    lg:text-5xl 
-    font-bold 
-    mb-4 
-    text-center 
-    bg-gradient-to-r 
-    from-purple-500 
-    via-pink-500 
-    to-red-500 
-    bg-clip-text 
-    text-transparent
-  "
+          text-3xl 
+          md:text-4xl 
+          lg:text-5xl 
+          font-bold 
+          mb-4 
+          text-center 
+          bg-gradient-to-r 
+          from-purple-500 
+          via-pink-500 
+          to-red-500 
+          bg-clip-text text-transparent
+        "
       >
         Update Product Information
       </h2>
 
       <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
         Update your product details to keep the information accurate and
-        helpful. Make sure all fields reflect the latest and correct product
-        information.
+        helpful.
       </p>
 
-      {/* ✅ FORM START */}
+      {/* FORM START */}
       <form onSubmit={handleUpdateProduct} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Product Name */}
@@ -79,7 +92,6 @@ const UpdateProducts = () => {
             <input
               type="text"
               name="name"
-              placeholder="Enter product name"
               defaultValue={name}
               className="input input-bordered w-full"
               required
@@ -92,7 +104,6 @@ const UpdateProducts = () => {
             <input
               type="number"
               name="price"
-              placeholder="Enter price"
               defaultValue={price}
               className="input input-bordered w-full"
               required
@@ -106,7 +117,6 @@ const UpdateProducts = () => {
               type="text"
               name="origin"
               defaultValue={origin}
-              placeholder="Enter country name"
               className="input input-bordered w-full"
               required
             />
@@ -121,7 +131,6 @@ const UpdateProducts = () => {
               max="5"
               name="rating"
               defaultValue={rating}
-              placeholder="Rate out of 5"
               className="input input-bordered w-full"
               required
             />
@@ -134,11 +143,67 @@ const UpdateProducts = () => {
               type="number"
               name="quantity"
               defaultValue={quantity}
-              placeholder="Enter available quantity"
               className="input input-bordered w-full"
               required
             />
           </div>
+
+          {/* Category */}
+          <div>
+            <label className="label">Category</label>
+            <input
+              type="text"
+              name="category"
+              defaultValue={category}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          {/* Supplier */}
+          <div>
+            <label className="label">Supplier Name</label>
+            <input
+              type="text"
+              name="supplier"
+              defaultValue={supplier}
+              className="input input-bordered w-full"
+            />
+          </div>
+
+          {/* Brand */}
+          <div>
+            <label className="label">Brand</label>
+            <input
+              type="text"
+              name="brand"
+              defaultValue={brand}
+              className="input input-bordered w-full"
+            />
+          </div>
+        </div>
+
+        {/* Short Description */}
+        <div>
+          <label className="label">Short Description</label>
+          <input
+            type="text"
+            name="shortDescription"
+            defaultValue={shortDescription}
+            className="input input-bordered w-full"
+            required
+          />
+        </div>
+
+        {/* Full Description */}
+        <div>
+          <label className="label">Full Description</label>
+          <textarea
+            name="fullDescription"
+            defaultValue={fullDescription}
+            className="textarea textarea-bordered w-full h-32"
+            required
+          ></textarea>
         </div>
 
         {/* Image URL */}
@@ -148,7 +213,6 @@ const UpdateProducts = () => {
             type="text"
             name="image"
             defaultValue={image}
-            placeholder="Enter image URL"
             className="input input-bordered w-full"
             required
           />

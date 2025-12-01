@@ -13,7 +13,7 @@ const slides = [
     buttonText: "See All Products",
     buttonLink: "/allProducts",
     bgImage:
-      "https://i.ibb.co.com/DDSjCsDZ/pexels-dhruvi-desai-79381073-8710506.jpg",
+      "https://i.ibb.co/DDSjCsDZ/pexels-dhruvi-desai-79381073-8710506.jpg",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const slides = [
       "Share your products with the world by adding them to the Export section effortlessly.",
     buttonText: "Add Export",
     buttonLink: "/addExport",
-    bgImage: "https://i.ibb.co.com/TDNs6FPf/pexels-photo-2765586.webp",
+    bgImage: "https://i.ibb.co/TDNs6FPf/pexels-photo-2765586.webp",
   },
   {
     id: 3,
@@ -30,8 +30,8 @@ const slides = [
     description:
       "Track your imported products, check available quantity, and see detailed product information.",
     buttonText: "My Imports",
-    buttonLink: "myImports",
-    bgImage: "https://i.ibb.co.com/wDX1LbV/pexels-goumbik-590022.jpg",
+    buttonLink: "/myImports",
+    bgImage: "https://i.ibb.co/wDX1LbV/pexels-goumbik-590022.jpg",
   },
 ];
 
@@ -49,7 +49,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 md:px-8 my-7">
+    <div className=" max-w-6xl mx-auto px-4 md:px-8 my-7">
       <Slider {...settings}>
         {slides.map(
           ({ id, title, description, buttonText, buttonLink, bgImage }) => (
